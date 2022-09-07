@@ -19,8 +19,10 @@ end
 
 if ddf(xi) >= 0
   disp(['Valor minimo en x=' num2str(xi)])
+  disp(['Valor de f(x)=' num2str(f(xi))])
 else
   disp(['Valor maximo en x=' num2str(xi)])
+  disp(['Valor de f(x)=' num2str(f(xi))])
 end
 
 figure

@@ -3,7 +3,7 @@ close all
 clear
 clc
 
-f = @(x, y) x .* exp(-x.^2 - y.^2)
+f = @(x, y) x .* exp(-x.^2 - y.^2);
 
 xLim = linspace(-2, 2, 50);
 yLim = linspace(-2, 2, 50);
