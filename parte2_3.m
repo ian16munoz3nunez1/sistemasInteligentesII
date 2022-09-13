@@ -20,18 +20,21 @@ G = 1000;
 D = 2;
 conver = zeros(1, G);
 
+pm = 0.7;
 x = xl + (xu - xl) .* rand([D 1]);
 
 for i=1:G
   fx = f(x(1), x(2));
   y = x;
 
-  j = randi(D);
-  r = rand();
+  for j=1:D
+    r = rand();
+    if r < pm
+      y(j) = xl(j) + (xu(j) - xl(j)) * r;
+    end
+  end
 
-  y(j) = xl(j) + (xu(j) - xl(j)) * r;
   fy = f(y(1), y(2));
-
   if fy < fx
     x = y;
   end
@@ -72,7 +75,7 @@ plot3(x(1), x(2), f(x(1), x(2)), 'co', 'LineWidth', 2, 'MarkerSize', 10)
 plot3(y(1), y(2), f(y(1), y(2)), 'cx', 'LineWidth', 2, 'MarkerSize', 10)
 plot3(y(1), y(2), f(y(1), y(2)), 'ro', 'LineWidth', 2, 'MarkerSize', 10)
 
-title("HC Mutacion Aleatoria: (x-2)^2 + (y-2)^2", 'FontSize', 20)
+title("HC Adaptativo: (x-2)^2 + (y-2)^2", 'FontSize', 20)
 xlabel('x', 'FontSize', 15)
 ylabel('y', 'FontSize', 15)
 zlabel('f(x,y)', 'FontSize', 15)
@@ -89,7 +92,7 @@ plot(x(1), x(2), 'co', 'LineWidth', 2, 'MarkerSize', 10)
 plot(y(1), y(2), 'cx', 'LineWidth', 2, 'MarkerSize', 10)
 plot(y(1), y(2), 'ro', 'LineWidth', 2, 'MarkerSize', 10)
 
-title("HC Mutacion Aleatoria: (x-2)^2 + (y-2)^2", 'FontSize', 20)
+title("HC Adaptativo: (x-2)^2 + (y-2)^2", 'FontSize', 20)
 xlabel('x', 'FontSize', 15)
 ylabel('y', 'FontSize', 15)
 zlabel('f(x,y)', 'FontSize', 15)

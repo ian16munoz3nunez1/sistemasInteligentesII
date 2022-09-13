@@ -4,12 +4,12 @@ close all
 clear
 clc
 
-f = @(x, y) (x - 2).^2 + (y - 2).^2;
-xl = [-5 -5]';
-xu = [5 5]';
+f = @(x, y) x .* exp(-x.^2 - y.^2);
+xl = [-2 -2]';
+xu = [2 2]';
 
-xLim = linspace(-5, 5, 50);
-yLim = linspace(-5, 5, 50);
+xLim = linspace(-2, 2, 50);
+yLim = linspace(-2, 2, 50);
 
 [X, Y] = meshgrid(xLim, yLim);
 Z = f(X, Y);
@@ -67,7 +67,7 @@ plot3(xb(1), xb(2), f(xb(1), xb(2)), 'co', 'LineWidth', 2, 'MarkerSize', 10)
 plot3(x(1), x(2), f(x(1), x(2)), 'cx', 'LineWidth', 2, 'MarkerSize', 10)
 plot3(x(1), x(2), f(x(1), x(2)), 'ro', 'LineWidth', 2, 'MarkerSize', 10)
 
-title("Busqueda Aleatoria: (x-2)^2 + (y-2)^2", 'FontSize', 20)
+title("Busqueda Aleatoria: xe^{-x^2 - y^2}", 'FontSize', 20)
 xlabel('x', 'FontSize', 15)
 ylabel('y', 'FontSize', 15)
 zlabel('f(x,y)', 'FontSize', 15)
@@ -84,7 +84,7 @@ plot(xb(1), xb(2), 'co', 'LineWidth', 2, 'MarkerSize', 10)
 plot(x(1), x(2), 'cx', 'LineWidth', 2, 'MarkerSize', 10)
 plot(x(1), x(2), 'ro', 'LineWidth', 2, 'MarkerSize', 10)
 
-title("Busqueda Aleatoria: (x-2)^2 + (y-2)^2", 'FontSize', 20)
+title("Busqueda Aleatoria: xe^{-x^2 - y^2}", 'FontSize', 20)
 xlabel('x', 'FontSize', 15)
 ylabel('y', 'FontSize', 15)
 zlabel('f(x,y)', 'FontSize', 15)
